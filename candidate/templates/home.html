@@ -1,0 +1,75 @@
+<form method="GET">
+    {%csrf_token%}
+    {%for field in form %}
+    {{field.label}}
+    {{field}}
+    <br><br>
+    {%endfor%}
+    <input type="submit" value="Search" />
+</form>
+    <a class="btn btn-default" href="{% url 'home' %}">Reset</a>
+<br><br>
+<table>
+    <th>S.No.</th>
+    <th>Name</th>
+    <th>Resume</th>
+    <th>Email</th>
+    <th>Mobile</th>
+    <th>Work Experience</th>
+    <th>Current Location</th>
+    <th>Nearest Location</th>
+    <th>Preferred Location</th>
+    <th>CTC</th>
+    <th>Current Employer</th>
+    <th>Current Designation</th>
+    <th>UG Course</th>
+    <th>UG Course Institute</th>
+    <th>UG Completion Year</th>
+    <th>Trier 1</th>
+    <th>PG Course</th>
+    <th>PG Course Institute</th>
+    <th>PG Completion Year</th>
+    <th>Skills</th>
+    {%for i in candidate%}
+    <tr>
+        <td>{{i.sno}}</td>
+        <td>{{i.name}}</td>
+        <td>{{i.resume}}</td>
+        <td>{{i.email}}</td>
+        <td>{{i.mobile}}</td>
+        <td>{{i.work_exp}}</td>
+        <td>{{i.current_loc}}</td>
+        <td>{{i.nearest_loc}}</td>
+        <td>{{i.preferred_loc}}</td>
+        <td>{{i.ctc}}</td>
+        <td>{{i.current_employer}}</td>
+        <td>{{i.current_desig}}</td>
+        <td>{{i.ug_course}}</td>
+        <td>{{i.ug_institute}}</td>
+        <td>{{i.ug_pass_year}}</td>
+        <td>{{i.trier_1}}</td>
+        <td>{{i.pg_course}}</td>
+        <td>{{i.pg_institute}}</td>
+        <td>{{i.pg_pass_year}}</td>
+        <td>{{i.skills}}</td>
+    </tr>
+    {%endfor%}
+</table>
+
+<style>
+    table
+    {
+        border: 1px solid silver;
+        font-size: 12px;
+    }
+    table th
+    {
+        background: whitesmoke;
+    }
+    table th,   table td
+    {
+        border: 1px solid silver;
+        
+        padding: 5px;
+    }
+</style>
